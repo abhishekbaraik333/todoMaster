@@ -227,7 +227,7 @@ function SignUp() {
                 </Button>
                 <div className="text-center">
                   <p className="text-sm text-gray-400">
-                    Didn't receive the code?{" "}
+                    Didn't receive the code?
                     <button
                       type="button"
                       onClick={() => setPendingVerification(false)}
