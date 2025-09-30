@@ -140,7 +140,7 @@ function SignIn() {
           </CardContent>
           <CardFooter className="justify-center pt-6">
             <p className="text-sm text-gray-400">
-              Don't have an account?
+              Don&apos;t have an account?
               <Link
                 href="/sign-up"
                 className="font-medium text-blue-400 hover:text-blue-300 transition-colors duration-200 hover:underline"
