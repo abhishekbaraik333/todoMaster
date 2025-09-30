@@ -43,7 +43,7 @@ export async function DELETE(
 
 export async function PUT(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   const { userId } = await auth();
 
@@ -52,7 +52,7 @@ export async function PUT(
   }
 
   try {
-     const awaitedParams = await params;
+    const awaitedParams = await context.params;
     const todoId = awaitedParams.id;
     const todo = await prisma.todo.findUnique({
       where: { id: todoId },
