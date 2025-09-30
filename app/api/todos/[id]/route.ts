@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function DELETE(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   const { userId } = await auth();
 
@@ -13,7 +13,7 @@ export async function DELETE(
   }
 
   try {
-     const awaitedParams = await params;
+     const awaitedParams = await context.params;
     const todoId = awaitedParams.id;
     const todo = await prisma.todo.findUnique({
       where: { id: todoId },
