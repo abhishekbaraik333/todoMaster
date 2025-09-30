@@ -52,9 +52,12 @@ function SignIn() {
       } else {
         console.log(JSON.stringify(result, null, 2));
       }
-    } catch (error: any) {
-      console.error("Error", error.errors[0].message);
-      setError(error.errors[0].message);
+    } catch (error) {
+      if(error instanceof Error){
+        setError(error.message);
+      }else{
+        setError("Unknown Error")
+      }
     }
   }
 

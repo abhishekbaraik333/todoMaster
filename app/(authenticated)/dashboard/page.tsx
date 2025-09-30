@@ -59,7 +59,7 @@ const Dashboard = () => {
         setTotalPages(data.totalPages);
         setCurrentPage(data.currentPage);
         setLoading(false);
-      } catch (error: any) {
+      } catch (error) {
         console.error("Error fetching todos:", error);
         setLoading(false);
       }
@@ -154,7 +154,6 @@ const Dashboard = () => {
 
   useEffect(() => {
     fetchTodos(1);
-    console.log(user);
     fetchSubscriptionStatus();
   }, [fetchTodos]);
 

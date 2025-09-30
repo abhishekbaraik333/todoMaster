@@ -21,7 +21,8 @@ export default function SubscribePage() {
         const res = await fetch("/api/subscription");
         const data = await res.json();
         setSubscribed(data.isSubscribed);
-      } catch (err: any) {
+      } catch (err) {
+        console.error(err)
         setError("Could not check subscription status");
       } finally {
         setLoading(false);
@@ -37,8 +38,8 @@ export default function SubscribePage() {
       const res = await fetch("/api/subscription", { method: "POST" });
       if (!res.ok) throw new Error("Subscription failed");
       setSubscribed(true);
-    } catch (err: any) {
-      setError(err.message || "Unable to subscribe");
+    } catch (err) {
+      setError("Unable to subscribe");
     } finally {
       setSubscribeLoading(false);
     }

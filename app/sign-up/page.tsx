@@ -50,9 +50,11 @@ function SignUp() {
         strategy: "email_code",
       });
       setPendingVerification(true);
-    } catch (error: any) {
-      console.log(JSON.stringify(error, null, 2));
-      setError(error.errors[0].message);
+    } catch (error) {
+      if(error instanceof Error){
+        console.log(JSON.stringify(error, null, 2));
+        setError(error.message);
+      }
     }
   }
 
@@ -93,9 +95,11 @@ function SignUp() {
           router.push("/dashboard");
         }, 1000);
       }
-    } catch (error: any) {
-      console.log(JSON.stringify(error, null, 2));
-      setError(error.errors[0].message);
+    } catch (error) {
+      if(error instanceof Error){
+        console.log(JSON.stringify(error, null, 2));
+        setError(error.message);
+      }
     }
   }
 
